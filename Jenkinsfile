@@ -7,9 +7,8 @@ pipeline {
     stage('SonarQube Analysis') {
       steps {
         sh '''
-	 whoami
-	 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/home/ubuntu/.dotnet/tools
 	 echo $PATH
+	 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/home/ubuntu/.dotnet/tools
          echo Restore started on `date`.
          dotnet sonarscanner begin /k:"Dotnet" /d:sonar.host.url=http://sonarqube.mukesh.website/ /d:sonar.login=a4d618c0d085897edde7e088c60d37fc01cedd5c
          dotnet restore panz.csproj
